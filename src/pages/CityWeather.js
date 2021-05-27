@@ -40,6 +40,7 @@ const CityWeather = (props) => {
         const newinfo = { cnt: data.weather.length, list: [data] };
         dispatch({ type: "FETCH_WEATHER", data: newinfo });
       } catch (error) {
+        dispatch({ type: "DELETE_WEATHER", data: [] });
         console.log(error);
       }
     };
@@ -59,8 +60,7 @@ const CityWeather = (props) => {
           <Logo />
           <span style={{ padding: 5, color: "#fff" }}>Weather App</span>
         </Grid>
-        {!!data.weatherData ? (
-          !!data.weatherData.list &&
+        {!!data.weatherData.list && data.weatherData.list.length > 0 ? (
           data.weatherData.list.map((value) => (
             <Grid
               className={classes.gridList}

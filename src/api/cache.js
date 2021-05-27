@@ -1,3 +1,10 @@
+/**
+ * @author [Sanjeewa Ranuluge]
+ * @email [example@mail.com]
+ * @create date 2021-05-28 03:12:41
+ * @modify date 2021-05-28 03:12:41
+ * @desc [Cache mechanism]
+ */
 import axios from "axios";
 
 const api = axios.create({

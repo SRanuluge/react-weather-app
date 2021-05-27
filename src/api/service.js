@@ -16,6 +16,7 @@ export const getWeatherByCityName = (citiName) => {
     path:"/weather",
     params: {
       q: citiName,
+      units: "metric",
       appid: "eadfe045227521adc8b42decea6ed4c5",
     },
   });

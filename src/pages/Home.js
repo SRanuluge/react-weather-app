@@ -22,7 +22,7 @@ import { getWeatherByCityCode } from "../api/service";
 
 const useStyles = makeStyles({
   gridList: {
-    paddingBottom: 50,
+    paddingBottom: 70,
   },
   textField: {
     alignSelf: "center",
@@ -35,7 +35,6 @@ const useStyles = makeStyles({
     backgroundImage: `url(${Image})`,
     backgroundRepeat: "no-repeat",
     minHeight: "100vh",
-
     backgroundSize: "cover",
   },
 });
