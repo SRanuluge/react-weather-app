@@ -116,7 +116,7 @@ const Home = () => {
             <h2>No data to show</h2>
           </Grid>
         )}
-        <Footer>2021 Fidenz Technologies</Footer>
+        <Footer>2023 sranuluge.dev </Footer>
       </Container>
     </Paper>
   );
