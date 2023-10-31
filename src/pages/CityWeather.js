@@ -15,6 +15,7 @@ import Image from "../assets/Images/card.png";
 import Logo from "../components/Logo";
 import { WeatherContext } from "../context/weatherContext";
 import { getWeatherByCityName } from "../api/service";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
   gridList: {
@@ -27,16 +28,16 @@ const useStyles = makeStyles({
   },
 });
 
-const CityWeather = (props) => {
+const CityWeather = () => {
   const classes = useStyles();
   const { data, dispatch } = useContext(WeatherContext);
-  const query = props.match;
+  const { name: city } = useParams();
 
   useEffect(() => {
     //search weather detail by city name
-    const search = async ({ params }) => {
+    const search = async (params) => {
       try {
-        const data = await getWeatherByCityName(params.name);
+        const data = await getWeatherByCityName(params || "Christchurch");
         const newinfo = { cnt: data.weather.length, list: [data] };
         dispatch({ type: "FETCH_WEATHER", data: newinfo });
       } catch (error) {
@@ -44,8 +45,8 @@ const CityWeather = (props) => {
         console.log(error);
       }
     };
-    search(query);
-  }, [query]);
+    search(city);
+  }, [city]);
 
   return (
     <Paper className={classes.paperContainer}>
